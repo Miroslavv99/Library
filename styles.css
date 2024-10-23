@@ -2,6 +2,7 @@ body, html {
     padding: 0;
     margin: 0;
     overflow-x: hidden; 
+    background-color: #000000;
 }
 
 
@@ -82,11 +83,11 @@ input {
 
 .book-list {
     display: flex;
-    height: 500px;
+    height: 1500px;
     width: 100%;
     margin: 0;
     padding: 0;
-    background-color: rgb(255, 255, 255);
+    background-color:black;
    flex-wrap: wrap;
    gap: 10px;
 }
@@ -119,11 +120,13 @@ input {
     cursor: pointer;
     font-family: 'SF pro',  sans-serif;
     font-weight: 550;
-    color: rgb(72, 72, 72);
+    color: rgb(26, 26, 26);
     border-radius: 5px;
+    border: none;
 }
 
 .change-button {
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -132,5 +135,6 @@ input {
     cursor: pointer;
     font-family: 'SF pro',  sans-serif;
     font-weight: 550;
-    color: rgb(72, 72, 72);
+    color: rgb(26, 26, 26);
+    border: none;
 }
