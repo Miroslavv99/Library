@@ -1,0 +1,136 @@
+body, html {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden; 
+}
+
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: black;
+    height: 100px;
+    width: 100vw;
+    color: white;
+    gap: 1000px;
+    font-family: 'Oksanium', sans-serif;
+}
+
+#add-button {
+    height: 50px ;
+    width: 100px;
+    font-family: 'SF pro',  sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#books-form {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Oksanium', sans-serif;
+    border: 1px solid black;
+    border-radius: 8px;
+    position: relative;
+    z-index: 2;
+    color: rgb(60, 60, 60);
+    background-color: white;
+    font-weight: 500;
+    display: none;
+    padding: 8px;
+
+
+}
+
+.main {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    width: 100%; 
+} 
+
+
+input {
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+.form-div {
+    display: flex;
+    justify-content: center;
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 10; 
+}
+
+#submit-btn {
+    height: 50px;
+    width: 100px;
+    font-family: 'SF pro',  sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.book-list {
+    display: flex;
+    height: 500px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+   flex-wrap: wrap;
+   gap: 10px;
+}
+
+.book-card {
+    display: flex;
+    padding-left: 10px;
+    width: 220px;
+    height: 280px;
+    margin: 20px;
+    justify-content: center;
+    background: linear-gradient(to right, #2f3c53, #000000);
+    white-space: pre-line;
+    gap: 12px;
+    font-family: Roboto;
+    font-weight: 600;
+    background-color: black;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    flex-direction: column;
+}
+
+.delete-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 90px;
+    cursor: pointer;
+    font-family: 'SF pro',  sans-serif;
+    font-weight: 550;
+    color: rgb(72, 72, 72);
+    border-radius: 5px;
+}
+
+.change-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 120px;
+    cursor: pointer;
+    font-family: 'SF pro',  sans-serif;
+    font-weight: 550;
+    color: rgb(72, 72, 72);
+}
