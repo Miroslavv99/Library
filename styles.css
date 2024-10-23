@@ -4,8 +4,6 @@ body, html {
     overflow-x: hidden; 
     background-color: #000000;
 }
-
-
 .head {
     display: flex;
     align-items: center;
@@ -17,7 +15,6 @@ body, html {
     gap: 1000px;
     font-family: 'Oksanium', sans-serif;
 }
-
 #add-button {
     height: 50px ;
     width: 100px;
@@ -25,7 +22,6 @@ body, html {
     font-weight: 700;
     cursor: pointer;
 }
-
 #books-form {
     display: flex;
     flex-direction: column;
@@ -39,15 +35,11 @@ body, html {
     border-radius: 8px;
     position: relative;
     z-index: 2;
-    color: rgb(60, 60, 60);
-    background-color: white;
+    color: rgb(255, 255, 255);
     font-weight: 500;
     display: none;
     padding: 8px;
-
-
 }
-
 .main {
     margin: 0;
     padding: 0;
@@ -55,14 +47,11 @@ body, html {
     overflow: hidden;
     width: 100%; 
 } 
-
-
 input {
     padding: 8px; 
     border: 1px solid #ccc; 
     border-radius: 4px; 
 }
-
 .form-div {
     display: flex;
     justify-content: center;
@@ -71,8 +60,10 @@ input {
     left: 50%; 
     transform: translate(-50%, -50%); 
     z-index: 10; 
+    background: linear-gradient(to right, #1a505d, #000000);
+    border-radius: 8px;
+    
 }
-
 #submit-btn {
     height: 50px;
     width: 100px;
@@ -80,18 +71,16 @@ input {
     font-weight: 600;
     cursor: pointer;
 }
-
 .book-list {
     display: flex;
-    height: 1500px;
+    height: 500px;
     width: 100%;
     margin: 0;
     padding: 0;
-    background-color:black;
+    background-color: rgb(0, 0, 0);
    flex-wrap: wrap;
    gap: 10px;
 }
-
 .book-card {
     display: flex;
     padding-left: 10px;
@@ -99,18 +88,16 @@ input {
     height: 280px;
     margin: 20px;
     justify-content: center;
-    background: linear-gradient(to right, #1b4950, #000000);
+    background: linear-gradient(to right, #1a505d, #000000);
     white-space: pre-line;
     gap: 12px;
     font-family: Roboto;
     font-weight: 600;
-    background-color: black;
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
     border-radius: 8px;
     flex-direction: column;
 }
-
 .delete-button {
     display: flex;
     align-items: center;
@@ -120,13 +107,10 @@ input {
     cursor: pointer;
     font-family: 'SF pro',  sans-serif;
     font-weight: 550;
-    color: rgb(26, 26, 26);
+    color: rgb(72, 72, 72);
     border-radius: 5px;
-    border: none;
 }
-
 .change-button {
-    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,6 +119,5 @@ input {
     cursor: pointer;
     font-family: 'SF pro',  sans-serif;
     font-weight: 550;
-    color: rgb(26, 26, 26);
-    border: none;
+    color: rgb(72, 72, 72);
 }
