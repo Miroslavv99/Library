@@ -15,7 +15,21 @@
       </div>
     </header>
     <div class="main">
-      <img src="KNIGI.jpg" alt="books" />
+      <img src="KNIGI.jpg" alt="books" width="100%" />
+      <div class="form-div">
+        <form id="books-form">
+          <label for="book-title">Title:</label>
+          <input type="text" id="book-title" />
+          <label for="book-author">Author:</label>
+          <input type="text" id="book-author" />
+          <label for="book-pages">Pages:</label>
+          <input type="number" id="book-pages" />
+          <label for="read">You read this book?</label>
+          <input type="checkbox" id="read" />
+          <button type="submit" id="submit-btn">Add Book</button>
+        </form>
+      </div>
+      <div class="book-list"></div>
     </div>
   </body>
 </html>
