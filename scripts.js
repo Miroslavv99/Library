@@ -20,13 +20,19 @@ const libraries = []
 booksForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
+    
    
    booksForm.style.display = 'none'
 
    const titleValue = bookTitle.value
    const authorValue = bookAuthor.value
    const pagesValue = bookPages.value
-   const readValue = read.checked ? 'Yes!' : 'No!'
+   const readValue = read.checked ? 'Yes' : 'No'
+
+   if(titleValue === '') {
+    alert("Please enter book info!")
+    return
+   }
 
    function Book (title, author, pages, read) {
     this.title = title
