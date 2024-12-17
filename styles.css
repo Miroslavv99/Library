@@ -60,7 +60,7 @@ input {
 .image-div {
     height: 300px;
     width: 100vw;
-    background: url('/the-Newberry.jpg') fixed;
+    background: url('the-Newberry.jpg') fixed;
     background-size: cover;
 }
 
@@ -101,7 +101,7 @@ input {
     height: 280px;
     margin: 20px;
     justify-content: center;
-    background: url('/background.jpg');
+    background: url('background.jpg');
     background-size: cover;
     white-space: pre-line;
     gap: 12px;
