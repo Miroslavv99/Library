@@ -34,44 +34,40 @@ booksForm.addEventListener('submit', (event) => {
     return
    }
 
-   function Book (title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-   }
-
-   const newBook = new Book(titleValue, authorValue, pagesValue, readValue)
-
-   libraries.push(newBook)
-
-   const bookCard = document.createElement('div')
-
-   bookCard.innerHTML = `Title: ${newBook.title} <br><br> Author: ${newBook.author} <br><br> Pages: ${newBook.pages} `
-   
-
-   bookCard.classList.add('book-card');
-
-   booksList.appendChild(bookCard)
-
-   const readStatus = document.createElement('span')
-   readStatus.innerHTML =  `<br>Read:  ${newBook.read}`
-   bookCard.appendChild(readStatus)
-
-   const changeButton = document.createElement('button')
-   changeButton.textContent = 'Change "Read" value'
-   changeButton.classList.add('change-button')
-   bookCard.appendChild(changeButton)
-
-   changeButton.addEventListener('click', () => {
-    if(newBook.read === 'Yes') {
-        newBook.read = 'No'
-    } else {
-        newBook.read = 'Yes'
+   class Book {
+    constructor(title, author, pages, read) {
+        this.title= title
+        this.author = author
+        this.pages = pages
+        this.read = read
     }
+
+    addBook() {
+        const bookCard = document.createElement('div')
+        bookCard.innerHTML = `Title: ${newBook.title} <br><br> Author: ${newBook.author} <br><br> Pages: ${newBook.pages} `
+        bookCard.classList.add('book-card');    
+        booksList.appendChild(bookCard)
+
+
+        const readStatus = document.createElement('span')
+        readStatus.innerHTML =  `<br>Read:  ${newBook.read}`
+        bookCard.appendChild(readStatus)
+
+
+        const changeButton = document.createElement('button')
+        changeButton.textContent = 'Change "Read" value'
+        changeButton.classList.add('change-button')
+        bookCard.appendChild(changeButton)
+
+        changeButton.addEventListener('click', () => {
+         if(newBook.read === 'Yes') {
+             newBook.read = 'No'
+          } else {
+             newBook.read = 'Yes'
+       }
     
-    readStatus.innerHTML = `<br>Read: ${newBook.read}`;
-   })
+        readStatus.innerHTML = `<br>Read: ${newBook.read}`;
+       })
 
 
    const deleteButton = document.createElement('button')
@@ -82,7 +78,16 @@ booksForm.addEventListener('submit', (event) => {
    deleteButton.addEventListener('click', () => {
     bookCard.remove()
    })
-
+   
+   
    booksForm.reset()
+    
+ }
+}
+
+   const newBook = new Book(titleValue, authorValue, pagesValue, readValue)
+   libraries.push(newBook)
+  
+   newBook.addBook()
 })
 
