@@ -8,33 +8,16 @@ const read = document.getElementById('read')
 
 
 addButton.addEventListener('click', () => {
-if(booksForm.style.display === 'none') {
-   booksForm.style.display = 'flex'
-} else {
-    booksForm.style.display = 'none'
-}
-})
+    if(booksForm.style.display === 'none') {
+       booksForm.style.display = 'flex'
+    } else {
+        booksForm.style.display = 'none'
+    }
+    })
 
-const libraries = []
 
-booksForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-
-    
-   
-   booksForm.style.display = 'none'
-
-   const titleValue = bookTitle.value
-   const authorValue = bookAuthor.value
-   const pagesValue = bookPages.value
-   const readValue = read.checked ? 'Yes' : 'No'
-
-   if(titleValue === '') {
-    alert("Please enter book info!")
-    return
-   }
-
-   class Book {
+class Book {
+    _library = []
     constructor(title, author, pages, read) {
         this.title= title
         this.author = author
@@ -42,52 +25,70 @@ booksForm.addEventListener('submit', (event) => {
         this.read = read
     }
 
-    addBook() {
-        const bookCard = document.createElement('div')
-        bookCard.innerHTML = `Title: ${newBook.title} <br><br> Author: ${newBook.author} <br><br> Pages: ${newBook.pages} `
-        bookCard.classList.add('book-card');    
-        booksList.appendChild(bookCard)
+    addBook(title, author, pages, read) {
+        const book = new Book(title, author, pages, read)
+        this._library.push(book)
+    }
+
+    removeBook(index) {
+        this._library.splice(index, 1)
+    }
+
+    displayBooks() {
+        booksList.innerHTML = ''
+        this._library.forEach((book, index) => {
+
+            const bookCard = document.createElement('div')
+            bookCard.innerHTML = `Title: ${book.title} <br><br> Author: ${book.author} <br><br> Pages: ${book.pages}`
+            bookCard.classList.add('book-card'); 
+            booksList.appendChild(bookCard)
+
+            const readStatus = document.createElement('span')
+            readStatus.innerHTML =  `<br>Read:  ${book.read}`
+            bookCard.appendChild(readStatus)
+
+            const changeButton = document.createElement('button')
+            changeButton.textContent = 'Change "Read" value'
+            changeButton.classList.add('change-button')
+            bookCard.appendChild(changeButton)
+            changeButton.addEventListener('click', () => {
+                book.read = book.read === 'Yes' ? 'No' : 'Yes'
+                readStatus.innerHTML = `<br>Read: ${book.read}`
+               })
+
+            const deleteButton = document.createElement('button')
+            deleteButton.textContent = 'Delete'
+            deleteButton.classList.add('delete-button')
+            bookCard.appendChild(deleteButton)
+            deleteButton.addEventListener('click', () => {
+                this.removeBook(index)
+                this.displayBooks()
+            })
 
 
-        const readStatus = document.createElement('span')
-        readStatus.innerHTML =  `<br>Read:  ${newBook.read}`
-        bookCard.appendChild(readStatus)
+        })
+    }
 
 
-        const changeButton = document.createElement('button')
-        changeButton.textContent = 'Change "Read" value'
-        changeButton.classList.add('change-button')
-        bookCard.appendChild(changeButton)
-
-        changeButton.addEventListener('click', () => {
-         if(newBook.read === 'Yes') {
-             newBook.read = 'No'
-          } else {
-             newBook.read = 'Yes'
-       }
-    
-        readStatus.innerHTML = `<br>Read: ${newBook.read}`;
-       })
-
-
-   const deleteButton = document.createElement('button')
-   deleteButton.textContent = 'Delete'
-   deleteButton.classList.add('delete-button')
-   bookCard.appendChild(deleteButton)
-
-   deleteButton.addEventListener('click', () => {
-    bookCard.remove()
-   })
-   
-   
-   booksForm.reset()
-    
- }
 }
 
-   const newBook = new Book(titleValue, authorValue, pagesValue, readValue)
-   libraries.push(newBook)
-  
-   newBook.addBook()
-})
 
+const library = new Book()
+
+booksForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    booksForm.style.display = 'none'
+
+    const readValue = read.checked ? 'Yes' : 'No'
+
+    library.addBook(bookTitle.value, bookAuthor.value, bookPages.value, readValue)
+
+    library.displayBooks()
+
+    bookTitle.value = '';
+    bookAuthor.value = '';
+    bookPages.value = '';
+    read.value = '';
+
+})
