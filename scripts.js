@@ -96,6 +96,6 @@ booksForm.addEventListener('submit', (event) => {
     bookTitle.value = '';
     bookAuthor.value = '';
     bookPages.value = '';
-    read.value = '';
+    read.checked = false;
 
 })
