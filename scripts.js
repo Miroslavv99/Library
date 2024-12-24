@@ -17,12 +17,19 @@ addButton.addEventListener('click', () => {
 
 
 class Book {
-    _library = []
     constructor(title, author, pages, read) {
         this.title= title
         this.author = author
         this.pages = pages
         this.read = read
+    }
+}
+
+
+
+class Library {
+    constructor() {
+    this._library = []
     }
 
     addBook(title, author, pages, read) {
@@ -73,7 +80,7 @@ class Book {
 }
 
 
-const library = new Book()
+const library = new Library()
 
 booksForm.addEventListener('submit', (event) => {
     event.preventDefault()
